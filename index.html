@@ -5,24 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 
 
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-<header>Trivia</header>
+<header>Halloween Trivial Trivia!!</header>
 <button class="gameStart">Start</button>
     </div>
-    <div class="quiz">
-        <h1>Totally Trivia!</h1>
-        <form>
+    <div class="quiz" >
+
+        <div class="timer"></div>
+
+        <form action>
                 In 1996, what huge slasher film did Drew Barrymore briefly star in? <br>
-                <input type="text" name="firstname" value="Mickey">
+                <input type="radio" name="slasher" value="0"> Scary Movie<br>
+                <input type="radio" name="slasher" value="0"> Halloween<br>
+                <input type="radio" name="slasher" value="1"> Scream<br>
+
                 <br>
-                In the 90's Saturday morning TV show "Saved by the Bell" what was Zack's last name?<br>
-                <input type="text" name="lastname" value="Mouse">
+
+                Who did Michael Myers kill when he was a kid in the movie "Halloweem" ?<br>
+                <input type="radio" name="hwn" value="0"> Mother<br>
+                <input type="radio" name="hwn" value="1"> Sister<br>
+                <input type="radio" name="hwn" value="0"> Brother<br>
+
                 <br><br>
+
+                What is the name of the clown in the movie "It"?<br>
+                <input type="radio" name="it" value="1"> Pennywise<br>
+                <input type="radio" name="it" value="0"> Pogo<br>
+                <input type="radio" name="it" value="0"> Twisty<br>
+
+                <br><br>
+
+                What special gift did Danny Torrence have in the movie the "Shinning"? <br>
+                <input type="radio" name="shine" value="0"> Spiderman<br>
+                <input type="radio" name="shine" value="0"> X-Men<br>
+                <input type="radio" name="shine" value="1"> Blade<br>
+
+                <br><br>
+
+                In the original Friday the 13th movie, who killed all of the camp counselors in Camp Crystal Lake? <br>
+                <input type="radio" name="jason" value="0"> Jason Voorhees<br>
+                <input type="radio" name="jason" value="0"> Alice Hardy<br>
+                <input type="radio" name="jason" value="1"> Pamela Voorhees<br>
+
+                <br><br>
+
                 <input type="submit" value="Submit">
 
 
@@ -32,20 +64,32 @@
 
     <script>
    
-    $(document ).ready(() => {
-    $(".gameStart").on('click', () =>
-     {
-        $().show();
+    $(document).ready(function () {
+//hide on quiz on load
+
+    $(".quiz").hide() 
+    });
+//show quiz at click
+    $(".gameStart").on("click", () => {
+
+        $(".quiz").show()
 
     });
 
+    //hide start bittpm pm click
+    $(".gameStart").on("click", () => {
 
+$(".gameStart").hide()
 
-    });
+});
 
+//setting timer to 30 seconds
+let number = 30;
+let intervalId;
 
-    
+//timer begins when start button clicked
 
+$("#resume").on("click", run);
     
     </script>
 </body>

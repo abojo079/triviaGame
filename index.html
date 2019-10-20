@@ -20,44 +20,48 @@
         <div class="timer"></div>
 
         <form action>
-                In 1996, what huge slasher film did Drew Barrymore briefly star in? <br>
-                <input type="radio" name="slasher" value="0"> Scary Movie<br>
-                <input type="radio" name="slasher" value="0"> Halloween<br>
+                In 1996, what huge slasher film did Drew Barrymore briefly star in? <br><br/>
+                <input id="wrong" type="radio" name="slasher" value="0"> Scary Movie<br>
+                <input id="wrong" type="radio" name="slasher" value="0"> Halloween<br>
                 <input type="radio" name="slasher" value="1"> Scream<br>
 
                 <br>
 
-                Who did Michael Myers kill when he was a kid in the movie "Halloweem" ?<br>
-                <input type="radio" name="hwn" value="0"> Mother<br>
+                Who did Michael Myers kill when he was a kid in the movie "Halloween" ?<br><br/>
+                <input id="wrong" type="radio" name="hwn" value="0"> Mother<br>
                 <input type="radio" name="hwn" value="1"> Sister<br>
-                <input type="radio" name="hwn" value="0"> Brother<br>
+                <input id="wrong" type="radio" name="hwn" value="0"> Brother<br>
 
-                <br><br>
+                <br>
 
-                What is the name of the clown in the movie "It"?<br>
+                What is the name of the clown in the movie "It"?<br><br/>
                 <input type="radio" name="it" value="1"> Pennywise<br>
-                <input type="radio" name="it" value="0"> Pogo<br>
-                <input type="radio" name="it" value="0"> Twisty<br>
+                <input id="wrong" type="radio" name="it" value="0"> Pogo<br>
+                <input id="wrong" type="radio" name="it" value="0"> Twisty<br>
 
-                <br><br>
+                <br>
 
-                What special gift did Danny Torrence have in the movie the "Shinning"? <br>
-                <input type="radio" name="shine" value="0"> Spiderman<br>
-                <input type="radio" name="shine" value="0"> X-Men<br>
-                <input type="radio" name="shine" value="1"> Blade<br>
+                What special gift did Danny Torrence have in the movie the "Shining"? <br><br/>
+                <input type="radio" name="shine" value="0"> Telekinisis<br>
+                <input type="radio" name="shine" value="0"> Levetation<br>
+                <input type="radio" name="shine" value="1"> Shining<br>
 
-                <br><br>
+                <br>
 
-                In the original Friday the 13th movie, who killed all of the camp counselors in Camp Crystal Lake? <br>
+                In the original Friday the 13th movie, who killed all of the camp counselors in Camp Crystal Lake? <br><br/>
                 <input type="radio" name="jason" value="0"> Jason Voorhees<br>
                 <input type="radio" name="jason" value="0"> Alice Hardy<br>
                 <input type="radio" name="jason" value="1"> Pamela Voorhees<br>
 
-                <br><br>
+                <br>
+                
+                <input id="complete" type="submit" value="Submit">
 
-                <input type="submit" value="Submit">
-
-
+                <div class= "results">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
         </form>
 
     </div>
@@ -88,9 +92,62 @@ let number = 30;
 let intervalId;
 
 //timer begins when start button clicked
+$(".gameStart").on("click", run);
 
-$("#resume").on("click", run);
+////Setting timer
+function run() {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 1000);
+    }
+
+    function decrement() {
+
+      //  Decrease number by one.
+      number--;
+
+      $(".timer").html("<h2>" + "Time Remaining:"+ " " + number + "</h2>");
+
+// if statement - user clicks submit or time runs out results show
+
+const submit = $(".complete").on("click", () => {
+
+
+});
+
+    if (number === 0 || submit === true ) {
+stop();
+
+
+}
+
+  
+
+function stop() {
+
+clearInterval(intervalId);
+}
+
+///tallly
+const totalRight = 0;
+const totalWrong =0;
+const totalnotAnswered = 0;
+
+
+$("#char1").on("click", function() {
+    userScore = userScore + char1;
     
+    $('#userScore').text(userScore); 
+          
+        if (userScore == cpRandom){
+          wins();
+        }
+        else if (userScore > cpRandom){
+          looses();
+        }   
+  });  
+
+
+
     </script>
 </body>
 </html>
